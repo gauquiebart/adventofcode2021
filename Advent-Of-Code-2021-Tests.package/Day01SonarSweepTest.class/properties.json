@@ -6,6 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "Day01SonarSweepTests",
+	"name" : "Day01SonarSweepTest",
 	"type" : "normal"
 }

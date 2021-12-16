@@ -4,13 +4,9 @@ countIncreases: seaFloorDepths
 	"scope: class-variables  &  class-instance-variables"	
 	|count|
 	count := 0.
-		
-	2 to: seaFloorDepths size do: [:index |
-		|valueatindexmin1 valueatindex|
-		valueatindexmin1 := seaFloorDepths at: index - 1.
-		valueatindex := seaFloorDepths at: index.
-		valueatindex > valueatindexmin1 
-			ifTrue:[count := count + 1]
-		].
 	
+	(self asPairs: seaFloorDepths) collect: [:pair |
+		 (pair at: 2) > (pair at: 1)
+		ifTrue:[count := count + 1] ].
+		
 	^ count
