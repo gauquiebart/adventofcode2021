@@ -1,11 +1,11 @@
 {
 	"commentStamp" : "",
-	"super" : "Object",
+	"super" : "TestCase",
 	"category" : "Advent-Of-Code-2021-Tests",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "Day01SonarSweepTest",
+	"name" : "Day01SonarSweepTests",
 	"type" : "normal"
 }
