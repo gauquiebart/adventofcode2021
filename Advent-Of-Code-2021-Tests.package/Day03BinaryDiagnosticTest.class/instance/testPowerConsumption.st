@@ -10,6 +10,8 @@ testPowerConsumption
 	                2r00111 2r11100 2r10000 2r11001 2r00010 2r01010 ).
 
 	self
-		assert: (Day03BinaryDiagnostic gammaRate: testInput ofLength: 5)
-			* (Day03BinaryDiagnostic epsilonRate: testInput ofLength: 5)
+		assert: (Day03BinaryDiagnostic gammaRate: testInput bitMasks: (Day03BinaryDiagnostic bitMasks: 5))
+			* (Day03BinaryDiagnostic
+					 epsilonRate: testInput
+					 bitMasks: (Day03BinaryDiagnostic bitMasks:  5))
 		equals: 198

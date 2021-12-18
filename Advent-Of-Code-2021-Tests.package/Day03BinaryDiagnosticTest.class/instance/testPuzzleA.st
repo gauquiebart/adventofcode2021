@@ -9,6 +9,6 @@ testPuzzleA
 	testInput := self puzzleInput.
 
 	self
-		assert: (Day03BinaryDiagnostic gammaRate: testInput ofLength: 12)
-			* (Day03BinaryDiagnostic epsilonRate: testInput ofLength: 12)
+		assert: (Day03BinaryDiagnostic gammaRate: testInput bitMasks: (Day03BinaryDiagnostic  bitMasks: 12))
+			* (Day03BinaryDiagnostic epsilonRate: testInput bitMasks: (Day03BinaryDiagnostic bitMasks: 12))
 		equals: 3009600
