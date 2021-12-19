@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Advent-Of-Code-2021",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"rows",
+		"columns",
+		"markedRows",
+		"markedColumns"
+	],
+	"name" : "BingoBoard",
+	"type" : "normal"
+}

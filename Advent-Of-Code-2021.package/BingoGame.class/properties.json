@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Advent-Of-Code-2021",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"numberSequence",
+		"bingoBoards"
+	],
+	"name" : "BingoGame",
+	"type" : "normal"
+}
