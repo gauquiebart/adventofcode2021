@@ -12,6 +12,6 @@ testCountNumberOfMostOverlappingLineSegmentsForParalellToXOrYAxisAndDiagonal
 
 	self
 		assert:
-		(Day05HydrothermalVenture mostOverlappingLineSegments: testInput)
+		(Day05HydrothermalVenture mostOverlappingPoints: testInput)
 			size
 		equals: 5
