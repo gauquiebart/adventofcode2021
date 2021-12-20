@@ -1,12 +1,6 @@
 tests
 testPointOnLineSegment
 
-self
-		deny: ((LineSegment from: 5 @ 9 to: 0 @ 9) isPointOnLine: -1 @ 9)
-		equals: true.
-	self
-		assert: ((LineSegment from: 5 @ 9 to: 0 @ 9) isPointOnLine: 0 @ 9)
-		equals: true.
 	self
 		deny: ((LineSegment from: 0 @ 9 to: 5 @ 9) isPointOnLine: -1 @ 9)
 		equals: true.

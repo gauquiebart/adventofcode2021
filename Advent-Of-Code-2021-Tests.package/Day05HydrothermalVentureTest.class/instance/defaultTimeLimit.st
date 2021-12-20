@@ -1,4 +1,4 @@
 converting
 defaultTimeLimit
 
-	^ 5 minutes
+	^ 60 seconds
