@@ -14,10 +14,39 @@ testAsPoints
 	self
 		assert: (LineSegment from: 0 @ 2 to: 0 @ 4) asPoints
 		equals: (OrderedCollection new
-				 add: 0 @ 2; add: 0 @ 3; add: 0 @ 4;
+				 add: 0 @ 2;
+				 add: 0 @ 3;
+				 add: 0 @ 4;
 				 yourself).
 	self
-		assert: (LineSegment from: 1 @ 1 to: 3 @ 3) asPoints
+		assert: (LineSegment from: 9 @ 4 to: 3 @ 4) asPoints
 		equals: (OrderedCollection new
-				 add: 1 @ 1; add: 2 @ 2; add: 3 @ 3;
+				 add: 9 @ 4;
+				 add: 8 @ 4;
+				 add: 7 @ 4;
+				 add: 6 @ 4;
+				 add: 5 @ 4;
+				 add: 4 @ 4;
+				 add: 3 @ 4;
 				 yourself).
+	self
+		assert: (LineSegment from: 7 @ 9 to: 9 @ 7) asPoints
+		equals: (OrderedCollection new
+				 add: 7 @ 9;
+				 add: 8 @ 8;
+				 add: 9 @ 7;
+				 yourself).
+	self
+		assert: (LineSegment from: 9 @ 7 to: 7 @ 9) asPoints
+		equals: (OrderedCollection new
+				 add: 9 @ 7;
+				 add: 8 @ 8;
+				 add: 7 @ 9;
+				 yourself).
+		self
+		assert: (LineSegment from: 9 @ 7 to: 7 @ 9) asPoints
+		equals: (OrderedCollection new
+				 add: 9 @ 7;
+				 add: 8 @ 8;
+				 add: 7 @ 9;
+				 yourself).		

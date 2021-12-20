@@ -4,7 +4,7 @@ asPoints
 	result := OrderedCollection new.
 	direction := self direction.
 
-	numberOfSteps := direction x max: direction y.
+	numberOfSteps := (direction x abs) max: (direction y abs).
 	xIncrease := direction x / numberOfSteps.
 	yIncrease := direction y / numberOfSteps.
 

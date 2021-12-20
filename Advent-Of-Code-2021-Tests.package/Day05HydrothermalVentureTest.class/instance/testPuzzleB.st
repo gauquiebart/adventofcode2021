@@ -7,4 +7,4 @@ testPuzzleB
 	self
 		assert:
 		(Day05HydrothermalVenture mostOverlappingPoints: testInput) size
-		equals: 20187
+		equals: 17193
