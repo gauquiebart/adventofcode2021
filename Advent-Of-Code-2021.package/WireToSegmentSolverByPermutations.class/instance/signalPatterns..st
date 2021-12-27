@@ -1,0 +1,4 @@
+initialization
+signalPatterns: aCollectionOfSignalPatterns
+
+	signalPatterns := aCollectionOfSignalPatterns

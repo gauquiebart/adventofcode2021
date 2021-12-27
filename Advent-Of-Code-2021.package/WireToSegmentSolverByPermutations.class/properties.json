@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Advent-Of-Code-2021",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"signalPatterns",
+		"codeNumbers"
+	],
+	"name" : "WireToSegmentSolverByPermutations",
+	"type" : "normal"
+}
