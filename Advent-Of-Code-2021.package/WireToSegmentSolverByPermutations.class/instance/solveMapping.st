@@ -1,4 +1,5 @@
 solving
 solveMapping
-	^ self wireToSegmentPermutations detect: [ :aPossibleMapping |
-		self codeNumbersMatchSignalPatternsFor:aPossibleMapping]
+
+	^ self class wireToSegmentPermutations detect: [ :aPossibleMapping | 
+		  self codeNumbersMatchSignalPatternsFor: aPossibleMapping ]

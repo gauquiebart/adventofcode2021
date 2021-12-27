@@ -12,7 +12,7 @@ testWireToSegmentSolverByPermutations
 		                       yourself.
 
 	self
-		assert: wireToSegmentSolver wireToSegmentPermutations size
+		assert: WireToSegmentSolverByPermutations wireToSegmentPermutations size
 		equals: 5040.
 
 	self
@@ -28,5 +28,4 @@ testWireToSegmentSolverByPermutations
 				 yourself).
 
 
-	self assert: wireToSegmentSolver decodeNumbers equals: 5353.
-	
+	self assert: wireToSegmentSolver decodeNumbers equals: 5353
