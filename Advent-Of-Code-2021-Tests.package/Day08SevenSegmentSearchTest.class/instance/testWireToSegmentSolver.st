@@ -1,18 +1,18 @@
 tests
-testWireToSegmentSolverByPermutations
+testWireToSegmentSolver
 
 	| signalPatterns codeNumbers wireToSegmentSolver |
 	signalPatterns := #( acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb
 	                     eafb cagedb ab ).
 	codeNumbers := #( cdfeb fcadb cdfeb cdbaf ).
 
-	wireToSegmentSolver := WireToSegmentSolverByPermutations new
+	wireToSegmentSolver := WireToSegmentSolver new
 		                       signalPatterns: signalPatterns;
 		                       codeNumbers: codeNumbers;
 		                       yourself.
 
 	self
-		assert: WireToSegmentSolverByPermutations wireToSegmentPermutations size
+		assert: WireToSegmentSolver wireToSegmentPermutations size
 		equals: 5040.
 
 	self

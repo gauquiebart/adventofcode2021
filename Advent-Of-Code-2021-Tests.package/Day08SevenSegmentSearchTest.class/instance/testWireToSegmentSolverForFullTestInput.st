@@ -1,5 +1,5 @@
 tests
-testWireToSegmentSolverByPermutationsForFullTestInput
+testWireToSegmentSolverForFullTestInput
 
 	| wireToSegmentSolvers |
 	wireToSegmentSolvers := self asWireToSegmentSolverByPermutations:

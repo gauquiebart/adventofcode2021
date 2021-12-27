@@ -11,6 +11,6 @@
 		"signalPatterns",
 		"codeNumbers"
 	],
-	"name" : "WireToSegmentSolverByPermutations",
+	"name" : "WireToSegmentSolver",
 	"type" : "normal"
 }
