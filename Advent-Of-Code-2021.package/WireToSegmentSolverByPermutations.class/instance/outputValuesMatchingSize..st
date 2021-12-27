@@ -1,6 +1,6 @@
-as yet unclassified
+solving
 outputValuesMatchingSize: aCollectionOfOutputValueSizes
 
-	^ outputValues select: [ :outputValue | 
+	^ codeNumbers select: [ :outputValue | 
 		  aCollectionOfOutputValueSizes anySatisfy: [ :each | 
 			  each = outputValue size ] ]
