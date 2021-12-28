@@ -1,30 +1,13 @@
-solving
+private-solving
 firstUnbalancedCharacter: input
 
-	| stack |
-	stack := Stack new.
+	self resetStack.
 
 	input do: [ :each | 
-		each = ${ ifTrue: [ stack push: each ].
-		each = $} ifTrue: [ 
-			| pop |
-			pop := stack pop.
-			pop = ${ ifFalse: [ ^ each ] ].
-		each = $( ifTrue: [ stack push: each ].
-		each = $) ifTrue: [ 
-			| pop |
-			pop := stack pop.
-			pop = $( ifFalse: [ ^ each ] ].
-		each = $[ ifTrue: [ stack push: each ].
-		each = $] ifTrue: [ 
-			| pop |
-			pop := stack pop.
-			pop = $[ ifFalse: [ ^ each ] ].
-		each = $< ifTrue: [ stack push: each ].
-		each = $> ifTrue: [ 
-			| pop |
-			pop := stack pop.
-			pop = $< ifFalse: [ ^ each ] ] ].
+		each isOpeningBracket
+			ifTrue: [ stack push: each ]
+			ifFalse: [ 
+			stack pop = each matchingOpeningBracket ifFalse: [ ^ each ] ]].
 
 
 	^ stack isEmpty ifTrue: [ nil ]
