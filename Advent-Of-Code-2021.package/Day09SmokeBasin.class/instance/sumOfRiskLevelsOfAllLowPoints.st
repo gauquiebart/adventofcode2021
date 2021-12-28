@@ -1,4 +1,4 @@
 solving
 sumOfRiskLevelsOfAllLowPoints
 
-	^ (self lowPoints collect: [ :each | each + 1 ]) sum
+	^ (self lowPoints collect: [ :each | (self at: each) + 1 ]) sum

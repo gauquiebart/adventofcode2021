@@ -1,14 +1,11 @@
 private-solving
-lowPoints 
-	|lowPoints|
-	lowPoints := OrderedCollection new.
+lowPoints
 
-	1 to: (self maxX) do: [ :x | 
-		1 to: (self maxY) do: [ :y | 
-			| height neighbours |
-			height := self x: x y: y.
-			neighbours := self neighboursOfX: x y: y.
+	^ (self allCoordinates collect: [ :coord | 
+		  | height neighbours |
+		  height := self at: coord.
+		  neighbours := (self neighboursOf: coord) collect: [ :each | 
+			                self at: each ].
 
-			height < neighbours min ifTrue: [ lowPoints add: height ] ] ].
-	
-^ lowPoints 
+		  height < neighbours min ifTrue: [ coord ] ])
+	reject: #isNil
