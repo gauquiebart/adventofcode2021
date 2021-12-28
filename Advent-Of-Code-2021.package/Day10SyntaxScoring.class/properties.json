@@ -1,0 +1,23 @@
+{
+	"commentStamp" : "",
+	"super" : "PP2CompositeNode",
+	"category" : "Advent-Of-Code-2021",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"validLine",
+		"bracket1Open",
+		"bracket1Close",
+		"chunk",
+		"bracket2Open",
+		"bracket2Close",
+		"bracket3Open",
+		"bracket3Close",
+		"bracket4Open",
+		"bracket4Close",
+		"chunkContent"
+	],
+	"name" : "Day10SyntaxScoring",
+	"type" : "normal"
+}
