@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "BartGauquie 12/28/2021 19:07",
 	"super" : "TestCase",
-	"category" : "Advent-Of-Code-2021-Tests",
+	"category" : "Advent-Of-Code-2021-Tests-Tests",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
