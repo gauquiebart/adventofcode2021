@@ -1,3 +1,3 @@
 private - energy
-allSteps
+hundredSteps
 	^ 1 to: 100

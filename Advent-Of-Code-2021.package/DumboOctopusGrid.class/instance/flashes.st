@@ -1,4 +1,4 @@
 accessing
 flashes
 
-	^ (grid collect: [ :octopus | octopus totalFlashedFor: self allSteps ]) sum
+	^ (grid collect: [ :octopus | octopus totalNumberOfFlashesFor: self hundredSteps ]) sum

@@ -1,3 +1,3 @@
 energy
 advanceAllSteps
-	self allSteps do: [ :each | self advanceStep: each ]
+	self hundredSteps do: [ :each | self advanceStep: each ]

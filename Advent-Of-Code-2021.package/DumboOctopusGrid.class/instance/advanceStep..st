@@ -1,4 +1,4 @@
 private - energy
 advanceStep: aStep
 
-	self advanceStep: aStep forPositions: grid keys asOrderedCollection 
+	self advanceStep: aStep forPositions: (self positions)
