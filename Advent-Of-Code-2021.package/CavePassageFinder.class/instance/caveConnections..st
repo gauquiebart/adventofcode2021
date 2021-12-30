@@ -1,0 +1,3 @@
+initialization
+caveConnections: aCollectionOfCaveConnections
+	caveConnections := aCollectionOfCaveConnections
