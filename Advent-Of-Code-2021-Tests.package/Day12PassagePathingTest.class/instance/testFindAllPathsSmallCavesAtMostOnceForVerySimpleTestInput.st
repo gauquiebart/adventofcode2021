@@ -1,5 +1,5 @@
 tests
-testFindAllPathsForVerySimpleTestInput
+testFindAllPathsSmallCavesAtMostOnceForVerySimpleTestInput
 
 	| rawInput caveConnections cavePassageFinder |
 	rawInput := #( start - A #';' start - b #';' A - c #';' A - b #';'
@@ -9,7 +9,7 @@ testFindAllPathsForVerySimpleTestInput
 	cavePassageFinder := CavePassageFinder new caveConnections:
 		                     caveConnections.
 
-	self assert: cavePassageFinder findAllPaths asSet equals: (Set newFrom: { 
+	self assert: cavePassageFinder findAllPathsSmallCavesAtMostOnce asSet equals: (Set newFrom: { 
 				 #( start A b A c A end ).
 				 #( start A b A end ).
 				 #( start A b end ).

@@ -1,10 +1,9 @@
 private - solving
-findAllPathsFrom: caveA to: caveB withPathSoFar: pathSoFar
+findAllPathsFrom: caveA to: caveB withPathSoFar: pathSoFar usingPathReentryStopCondition: aPathReentryStopCondition
 
 	caveA = caveB ifTrue: [ ^ { { caveB } } ].
-	(pathSoFar anySatisfy: [ :each | 
-		 caveA = each and: (caveA allSatisfy: [ :char | char isLowercase ]) ]) 
-		ifTrue: [ ^ {  } ].
+	(aPathReentryStopCondition value: pathSoFar value: caveA) ifTrue: [ 
+		^ {  } ].
 
 	^ (self connectionsTo: caveA) flatCollect: [ :conn | 
 		  | pathSoFarIncludingCaveA allSubPaths |
@@ -14,7 +13,8 @@ findAllPathsFrom: caveA to: caveB withPathSoFar: pathSoFar
 		  allSubPaths := (self
 			                  findAllPathsFrom: conn
 			                  to: caveB
-			                  withPathSoFar: pathSoFarIncludingCaveA) reject: [ 
+			                  withPathSoFar: pathSoFarIncludingCaveA
+			usingPathReentryStopCondition: aPathReentryStopCondition ) reject: [ 
 			                 :each | each isEmpty ].
 		  allSubPaths collect: [ :aSubPath | 
 			  OrderedCollection new

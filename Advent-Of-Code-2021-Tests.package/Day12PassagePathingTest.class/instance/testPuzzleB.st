@@ -1,5 +1,5 @@
 tests
-testPuzzleA
+testPuzzleB
 
 	| rawInput caveConnections cavePassageFinder |
 	rawInput := #( start - YA #';' ps - yq #';' zt - mu #';' JS - yi #';'
@@ -13,4 +13,7 @@ testPuzzleA
 	cavePassageFinder := CavePassageFinder new caveConnections:
 		                     caveConnections.
 
-	self assert: cavePassageFinder findAllPathsSmallCavesAtMostOnce asSet size equals: 4304
+	self
+		assert:
+		cavePassageFinder findAllPathsSmallCavesAtMostOnceExceptOneSmallCaveTwice  asSet size
+		equals: 118242

@@ -1,5 +1,5 @@
 tests
-testFindAllPathsForLargerTestInput
+testFindAllPathsSmallCavesAtMostOnceForLargerTestInput
 
 	| rawInput caveConnections cavePassageFinder |
 	rawInput := #( dc - end #';' HN - start #';' start - kj #';' dc - start
@@ -11,5 +11,5 @@ testFindAllPathsForLargerTestInput
 		                     caveConnections.
 
 	self
-		assert: cavePassageFinder findAllPaths asSet size
+		assert: cavePassageFinder findAllPathsSmallCavesAtMostOnce asSet size
 		equals: 19
