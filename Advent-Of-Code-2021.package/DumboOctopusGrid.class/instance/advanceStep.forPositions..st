@@ -5,13 +5,11 @@ advanceStep: aStep forPositions: positions
 		ifTrue: [ ^ self ]
 		ifFalse: [ 
 			| positionsFlashed |
-			positionsFlashed := OrderedCollection new.
-
-			positions do: [ :position | 
-				| flashed |
-				flashed := (grid at: position) increaseEnergyLevelOnStep: aStep.
-				flashed ifTrue: [ positionsFlashed add: position ] ].
-
+			positionsFlashed := positions select: [ :position | 
+				                    | flashed |
+				                    flashed := (grid at: position) 
+					                               increaseEnergyLevelOnStep: aStep.
+				                    flashed ].
 			self
 				advanceStep: aStep
 				forPositions: (positionsFlashed flatCollect: [ :each | 
