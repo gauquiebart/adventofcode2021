@@ -51,4 +51,4 @@ testExpandPolymerTemplate
 	self
 		assert:
 		(Day14ExtendedPolymerization highestOccurenceCount: template)
-		equals: 1749.
+		equals: 1749
