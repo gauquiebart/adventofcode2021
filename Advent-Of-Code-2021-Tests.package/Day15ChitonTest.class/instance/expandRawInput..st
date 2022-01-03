@@ -1,5 +1,5 @@
 helper
-expandRawTestInput: rawInput
+expandRawInput: rawInput
 
 	| rawInputExpandedHorizontally rawInputExpandedVertically rawInputRows |
 	rawInputExpandedHorizontally := rawInput collect: [ :eachNumber | 

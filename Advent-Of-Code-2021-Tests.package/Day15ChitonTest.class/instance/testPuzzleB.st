@@ -1,12 +1,14 @@
 tests
-testPuzzleA
+testPuzzleB
 
-	| rawPuzzleInput nodes edges topLeftNode bottomRightNode dijkstra pathWithLowestTotalRiskFromTopLeftToBottomRight lowestTotalRiskFromTopLeftToBottomRight |
+	| rawPuzzleInput expandedRawPuzzleInput nodes edges topLeftNode bottomRightNode dijkstra pathWithLowestTotalRiskFromTopLeftToBottomRight lowestTotalRiskFromTopLeftToBottomRight |
 	rawPuzzleInput := self rawPuzzleInput.
 
-	nodes := self parseNodes: rawPuzzleInput.
+	expandedRawPuzzleInput := self expandRawInput: rawPuzzleInput.
+
+	nodes := self parseNodes: expandedRawPuzzleInput.
 	edges := self
-		         parseHorizontalAndVerticalEdges: rawPuzzleInput
+		         parseHorizontalAndVerticalEdges: expandedRawPuzzleInput
 		         usingNodes: nodes.
 
 	topLeftNode := nodes min.
@@ -20,14 +22,14 @@ testPuzzleA
 		to: [ :each | each second ]
 		weight: [ :each | each third ].
 
-TimeProfiler spyOn: [ 
 	pathWithLowestTotalRiskFromTopLeftToBottomRight := dijkstra
 		                                                   runFrom:
 		                                                   topLeftNode
 		                                                   to:
-		                                                   bottomRightNode.].
+		                                                   bottomRightNode.
 	lowestTotalRiskFromTopLeftToBottomRight := (dijkstra findNode:
 		                                            bottomRightNode)
 		                                           pathDistance.
 
-	self assert: lowestTotalRiskFromTopLeftToBottomRight equals: 487
+	self assert: lowestTotalRiskFromTopLeftToBottomRight equals: 487.
+	

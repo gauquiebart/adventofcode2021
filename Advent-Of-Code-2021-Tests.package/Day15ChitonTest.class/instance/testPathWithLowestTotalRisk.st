@@ -14,7 +14,7 @@ testPathWithLowestTotalRisk
 	topLeftNode := nodes min.
 	bottomRightNode := nodes max.
 
-	shortestPath := AIDijkstra new.
+	shortestPath := AIDijkstraWithHeap new.
 	shortestPath nodes: nodes.
 	shortestPath
 		edges: edges
