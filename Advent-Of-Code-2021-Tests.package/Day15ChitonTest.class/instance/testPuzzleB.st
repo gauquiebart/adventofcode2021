@@ -31,5 +31,6 @@ testPuzzleB
 		                                            bottomRightNode)
 		                                           pathDistance.
 
-	self assert: lowestTotalRiskFromTopLeftToBottomRight equals: 487.
+	self assert: lowestTotalRiskFromTopLeftToBottomRight equals: 2821.
+	"I must be using a faulty implementation of the Dijkstra Algo. It took 6 hours 15 minutes to calculate ... "
 	

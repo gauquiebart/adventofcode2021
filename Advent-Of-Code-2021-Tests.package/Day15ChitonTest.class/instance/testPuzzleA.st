@@ -20,12 +20,11 @@ testPuzzleA
 		to: [ :each | each second ]
 		weight: [ :each | each third ].
 
-TimeProfiler spyOn: [ 
-	pathWithLowestTotalRiskFromTopLeftToBottomRight := dijkstra
-		                                                   runFrom:
-		                                                   topLeftNode
-		                                                   to:
-		                                                   bottomRightNode.].
+		pathWithLowestTotalRiskFromTopLeftToBottomRight := dijkstra
+			                                                   runFrom:
+			                                                   topLeftNode
+			                                                   to:
+			                                                   bottomRightNode.
 	lowestTotalRiskFromTopLeftToBottomRight := (dijkstra findNode:
 		                                            bottomRightNode)
 		                                           pathDistance.
