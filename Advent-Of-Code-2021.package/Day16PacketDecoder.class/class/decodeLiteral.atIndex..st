@@ -18,8 +18,6 @@ decodeLiteral: aBinaryString atIndex: index
 		                            to: updatedIndex + 3).
 	updatedIndex := updatedIndex + 4 ] doWhileTrue: [ literalBit = 1 ].
 
-	updatedIndex := updatedIndex + (updatedIndex \\ 4).
-
 	^ { 
 		  (Number readFrom: literalValueAsBitString base: 2).
 		  updatedIndex }
