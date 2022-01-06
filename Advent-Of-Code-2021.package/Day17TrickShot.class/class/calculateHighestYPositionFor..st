@@ -1,18 +1,12 @@
 solving
 calculateHighestYPositionFor: targetArea
 
-	| calculateXSpeedToNumberOfStepsMappingToStayInTargetAreaHorizontally calculateYSpeedToNumberOfStepsMappingToStayIntoTargetAreaVertically bestVerticalSpeed |
-	calculateXSpeedToNumberOfStepsMappingToStayInTargetAreaHorizontally := self 
-		                                                                       calculateXSpeedToNumberOfStepsMappingToStayInTargetAreaHorizontally:
-		                                                                       targetArea.
+	| ySpeeds bestVerticalSpeed |
+	ySpeeds := self 
+		           calculateYSpeedToNumberOfStepsMappingToStayInTargetAreaVertically:
+		           targetArea.
 
 
-	calculateYSpeedToNumberOfStepsMappingToStayIntoTargetAreaVertically := self 
-		                                                                       calculateYSpeedToNumberOfStepsMappingToStayInTargetAreaVertically:
-		                                                                       targetArea.
-
-
-	bestVerticalSpeed := calculateYSpeedToNumberOfStepsMappingToStayIntoTargetAreaVertically
-		                     values last.
+	bestVerticalSpeed := ySpeeds values last.
 
 	^ (bestVerticalSpeed at: 1) value at: 2

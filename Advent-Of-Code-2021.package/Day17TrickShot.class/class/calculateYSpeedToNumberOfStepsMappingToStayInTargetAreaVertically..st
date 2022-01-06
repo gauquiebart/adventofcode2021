@@ -1,13 +1,14 @@
-solving-private
+solving - private
 calculateYSpeedToNumberOfStepsMappingToStayInTargetAreaVertically: targetArea
-	|result top bottom |
+
+	| result top bottom |
 	top := targetArea top.
 	bottom := targetArea bottom.
 	result := OrderedDictionary new.
-	
-	
-	1 to: 1000 do: [ :initialYSpeed |
-		|possibleSteps ySpeed numberOfSteps yPosition highestYPosition|
+
+
+	top to: 1000 do: [ :initialYSpeed | 
+		| possibleSteps ySpeed numberOfSteps yPosition highestYPosition |
 		possibleSteps := OrderedCollection new.
 		highestYPosition := 0.
 		yPosition := 0.
@@ -20,11 +21,9 @@ calculateYSpeedToNumberOfStepsMappingToStayInTargetAreaVertically: targetArea
 			numberOfSteps := numberOfSteps + 1.
 			(yPosition <= bottom and: yPosition >= top) ifTrue: [ 
 				possibleSteps add: numberOfSteps -> { 
-				 yPosition.
-				highestYPosition .
-					ySpeed}
-				 ]
-		 ].
+						yPosition.
+						highestYPosition.
+						ySpeed } ] ].
 		result at: initialYSpeed put: possibleSteps asArray ].
 
 	^ result reject: [ :each | each isEmpty ]

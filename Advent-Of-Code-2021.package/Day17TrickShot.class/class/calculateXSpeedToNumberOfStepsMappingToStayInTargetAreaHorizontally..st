@@ -1,4 +1,4 @@
-solving-private
+solving - private
 calculateXSpeedToNumberOfStepsMappingToStayInTargetAreaHorizontally: targetArea
 
 	| maxXSpeed result left right |
@@ -24,5 +24,4 @@ calculateXSpeedToNumberOfStepsMappingToStayInTargetAreaHorizontally: targetArea
 		result at: initialXSpeed put: possibleSteps asArray ].
 
 
-	^ (result reject: [ :each | each isEmpty ]) collect: [ :each | 
-		  each last ]
+	^ result reject: [ :each | each isEmpty ]
