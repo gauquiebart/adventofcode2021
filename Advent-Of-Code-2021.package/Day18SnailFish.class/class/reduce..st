@@ -1,13 +1,13 @@
 solving
 reduce: aNumber
-	|result explodedNumber|
+	|result explodedNumber splittedNumber |
 	
 	result := aNumber.
 		
 	explodedNumber := self explodeOnce: aNumber.
+	splittedNumber := self splitOnce: explodedNumber.
 	
-	result := explodedNumber.
+	result := splittedNumber.
 	
-	"self shouldBeImplemented."
 	
 	^ result
