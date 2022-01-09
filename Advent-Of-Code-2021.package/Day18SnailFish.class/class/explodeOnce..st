@@ -1,4 +1,8 @@
 solving - private
 explodeOnce: aNumber
-	
-	^ self explodeOnce: aNumber level: 1
+
+	| exploded |
+	exploded := self explodeOnce: aNumber level: 1.
+	^ exploded isAssociation
+		  ifTrue: [ exploded key ]
+		  ifFalse: [ exploded ]
