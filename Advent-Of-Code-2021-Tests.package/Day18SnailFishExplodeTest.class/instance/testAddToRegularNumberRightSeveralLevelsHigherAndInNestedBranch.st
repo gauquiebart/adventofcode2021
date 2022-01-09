@@ -29,4 +29,30 @@ testAddToRegularNumberRightSeveralLevelsHigherAndInNestedBranch
 						5.
 						{ 
 							4.
-							{ 3. 2 } } } } }
+							{ 3. 2 } } } } }.
+
+	self
+		assert: (Day18SnailFish reduce: { 
+					 { 
+						 3.
+						 { 
+							 2.
+							 { 8. 0 } } }.
+					 { 
+						 9.
+						 { 
+							 5.
+							 { 
+								 4.
+								 { 3. 2 } } } } })
+		equals: { 
+				{ 
+					3.
+					{ 
+						2.
+						{ 8. 0 } } }.
+				{ 
+					9.
+					{ 
+						5.
+						{ 7. 0 } } } }

@@ -1,7 +1,7 @@
 solving - private
 explodeOnce: aNumber level: aNestedLevel
 
-	| xBeforeExplosion xAfterExplosion yBeforeExplosion yAfterExplosion |
+	| xBeforeExplosion xAfterExplosion yBeforeExplosion yAfterExplosion xExploded |
 	aNumber isNumber ifTrue: [ ^ aNumber ].
 	aNestedLevel = 5 ifTrue: [ 
 		^ 0 -> { 
@@ -13,10 +13,23 @@ explodeOnce: aNumber level: aNestedLevel
 		                   explodeOnce: xBeforeExplosion
 		                   level: aNestedLevel + 1.
 
+	xExploded := xBeforeExplosion ~= xAfterExplosion.
+
 	yBeforeExplosion := aNumber at: 2.
-	yAfterExplosion := self
-		                   explodeOnce: yBeforeExplosion
-		                   level: aNestedLevel + 1.
+	yAfterExplosion := xExploded
+		                   ifTrue: [ yBeforeExplosion ]
+		                   ifFalse: [ 
+		                   self
+			                   explodeOnce: yBeforeExplosion
+			                   level: aNestedLevel + 1 ].
+
+	xAfterExplosion isAssociation ifTrue: [ 
+		yBeforeExplosion isNumber ifTrue: [ 
+			^ { 
+				  xAfterExplosion key.
+				  (yBeforeExplosion + (xAfterExplosion value at: 2)) } -> { 
+				  (xAfterExplosion value at: 1).
+				  0 } ] ].
 
 	yAfterExplosion isAssociation ifTrue: [ 
 		xBeforeExplosion isNumber
@@ -30,13 +43,7 @@ explodeOnce: aNumber level: aNestedLevel
 				^ { 
 					  xAfterExplosion.
 					  yAfterExplosion key } -> yAfterExplosion value ] ].
-	xAfterExplosion isAssociation ifTrue: [ 
-		yBeforeExplosion isNumber ifTrue: [ 
-			^ { 
-				  xAfterExplosion key.
-				  (yBeforeExplosion + (xAfterExplosion value at: 2)) } -> { 
-				  (xAfterExplosion value at: 1).
-				  0 } ] ].
+
 
 	^ { 
 		  xAfterExplosion.
