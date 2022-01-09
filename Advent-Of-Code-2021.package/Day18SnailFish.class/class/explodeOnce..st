@@ -8,13 +8,14 @@ explodeOnce: aNumber
 		          ifFalse: [ exploded ].
 
 	(result at: 1) isAssociation ifTrue: [ 
-		| remainingAddition rightPart |
+		| leftPart remainingAddition rightPart |
+		leftPart := (result at: 1) key.
 		remainingAddition := (result at: 1) value at: 2.
 		rightPart := result at: 2.
 		result := { 
-			          (result at: 1) key.
+			          leftPart.
 			          { 
 				          ((rightPart at: 1) + remainingAddition).
 				          (rightPart at: 2) } } ].
-
-	^ result
+			
+	^ self removeRemainingAssociations: result

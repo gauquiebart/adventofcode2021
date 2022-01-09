@@ -28,8 +28,8 @@ testAddToRegularNumberRightSeveralLevelsHigherAndInNestedBranch
 					{ 
 						5.
 						{ 
-							4.
-							{ 3. 2 } } } } }.
+							7.
+							0 } } } }.
 
 	self
 		assert: (Day18SnailFish reduce: { 
