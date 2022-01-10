@@ -2,7 +2,7 @@ tests
 testAddToRegularNumberRightSeveralLevelsHigherAndInNestedBranch
 
 	self
-		assert: (Day18SnailFish reduce: { 
+		assert: (Day18SnailFish explodeOnce: { 
 					 { 
 						 3.
 						 { 
@@ -28,11 +28,11 @@ testAddToRegularNumberRightSeveralLevelsHigherAndInNestedBranch
 					{ 
 						5.
 						{ 
-							7.
-							0 } } } }.
+							4.
+							{ 3. 2 } } } } }.
 
 	self
-		assert: (Day18SnailFish reduce: { 
+		assert: (Day18SnailFish explodeOnce: { 
 					 { 
 						 3.
 						 { 
@@ -46,13 +46,15 @@ testAddToRegularNumberRightSeveralLevelsHigherAndInNestedBranch
 								 4.
 								 { 3. 2 } } } } })
 		equals: { 
-				{ 
-					3.
-					{ 
-						2.
-						{ 8. 0 } } }.
-				{ 
-					9.
-					{ 
-						5.
-						{ 7. 0 } } } }
+					 { 
+						 3.
+						 { 
+							 2.
+							 { 8. 0 } } } .
+					 { 
+						 9.
+						 { 
+							 5.
+							 { 
+								 7.
+								 0 } } } }

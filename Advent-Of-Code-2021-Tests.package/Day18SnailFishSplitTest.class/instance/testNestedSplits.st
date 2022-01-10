@@ -2,7 +2,7 @@ tests
 testNestedSplits
 
 	self
-		assert: (Day18SnailFish reduce: { 
+		assert: (Day18SnailFish splitOnce: { 
 					 { 
 						 { 
 							 { 0. 7 }.
@@ -18,6 +18,27 @@ testNestedSplits
 						4 }.
 					{ 
 						{ 7. 8 }.
+						{ 0. 13 } } }.
+				{ 1. 1 } }.
 
-						{ 6. 0 } } }.
-				{ 8. 1 } }
+	self
+		assert: (Day18SnailFish splitOnce: { 
+					 { 
+						 { 
+							 { 0. 7 }.
+							 4 }.
+						 { 
+							 { 7. 8 }.
+							 { 0. 13 } } }.
+					 { 1. 1 } })
+		equals: { 
+				{ 
+					{ 
+						{ 0. 7 }.
+						4 }.
+					{ 
+						{ 7. 8 }.
+						{ 
+							0.
+							{ 6. 7 } } } }.
+				{ 1. 1 } }

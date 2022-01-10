@@ -24,12 +24,21 @@ explodeOnce: aNumber level: aNestedLevel
 			                   level: aNestedLevel + 1 ].
 
 	xAfterExplosion isAssociation ifTrue: [ 
-		yBeforeExplosion isNumber ifTrue: [ 
-			^ { 
-				  xAfterExplosion key.
-				  (yBeforeExplosion + (xAfterExplosion value at: 2)) } -> { 
-				  (xAfterExplosion value at: 1).
-				  0 } ] ].
+		yBeforeExplosion isNumber
+			ifTrue: [ 
+				^ { 
+					  xAfterExplosion key.
+					  (yBeforeExplosion + (xAfterExplosion value at: 2)) } -> { 
+					  (xAfterExplosion value at: 1).
+					  0 } ]
+			ifFalse: [ 
+				^ { 
+					  xAfterExplosion key.
+					  (self
+						   explodeValue: (xAfterExplosion value at: 2)
+						   leftUpwardsInto: yAfterExplosion) } -> { 
+					  (xAfterExplosion value at: 1).
+					  0 } ] ].
 
 	yAfterExplosion isAssociation ifTrue: [ 
 		xBeforeExplosion isNumber
@@ -41,8 +50,12 @@ explodeOnce: aNumber level: aNestedLevel
 					  (yAfterExplosion value at: 2) } ]
 			ifFalse: [ 
 				^ { 
-					  xAfterExplosion.
-					  yAfterExplosion key } -> yAfterExplosion value ] ].
+					  (self
+						   explodeValue: (yAfterExplosion value at: 1)
+						   rightUpwardsInto: xAfterExplosion).
+					  yAfterExplosion key } -> { 
+					  0.
+					  (yAfterExplosion value at: 2) } ] ].
 
 
 	^ { 

@@ -2,7 +2,7 @@ tests
 testAddToRegularNumberRightSeveralLevelsHigher
 
 	self
-		assert: (Day18SnailFish reduce: { 
+		assert: (Day18SnailFish explodeOnce: { 
 					 { 
 						 6.
 						 { 
