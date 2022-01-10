@@ -18,4 +18,4 @@ explodeOnce: aNumber
 				          ((rightPart at: 1) + remainingAddition).
 				          (rightPart at: 2) } } ].
 			
-	^ self removeRemainingAssociations: result
+	^ self resolveRemainingExplodedAssociations: result
