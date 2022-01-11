@@ -10,6 +10,5 @@ relativeCoordinatesToAllBeacons: aCollectionOfBeacons
 	^ (combinations collect: [ :eachCombination | 
 		   (eachCombination at: 1) - (eachCombination at: 2) ]) 
 		  flatCollectAsSet: [ :eachRelativeCoordinateBetweenTwoBeacons | 
-			  { 
-				  eachRelativeCoordinateBetweenTwoBeacons.
-				  (eachRelativeCoordinateBetweenTwoBeacons * (-1 @ 1 @ 1)) } ]
+			  eachRelativeCoordinateBetweenTwoBeacons
+				  asSeenInAllCoordinateSystems ]

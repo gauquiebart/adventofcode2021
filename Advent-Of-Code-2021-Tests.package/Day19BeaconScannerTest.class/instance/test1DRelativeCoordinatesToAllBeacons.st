@@ -1,5 +1,5 @@
 tests
-testRelativeCoordinatesToAllBeacons
+test1DRelativeCoordinatesToAllBeacons
 
 	self
 		assert: (Day19BeaconScanner relativeCoordinatesToAllBeacons: { 
@@ -7,7 +7,11 @@ testRelativeCoordinatesToAllBeacons
 					 (5 @ 0 @ 0) })
 		equals: { 
 				(-1 @ 0 @ 0).
-				(1 @ 0 @ 0) } asSet.
+				(1 @ 0 @ 0).
+				(0 @ -1 @ 0).
+				(0 @ 1 @ 0).
+				(0 @ 0 @ -1).
+				(0 @ 0 @ 1) } asSet.
 
 	self
 		assert: (Day19BeaconScanner relativeCoordinatesToAllBeacons: { 
@@ -15,7 +19,11 @@ testRelativeCoordinatesToAllBeacons
 					 (3 @ 0 @ 0) })
 		equals: { 
 				(-1 @ 0 @ 0).
-				(1 @ 0 @ 0) } asSet.
+				(1 @ 0 @ 0).
+				(0 @ -1 @ 0).
+				(0 @ 1 @ 0).
+				(0 @ 0 @ -1).
+				(0 @ 0 @ 1) } asSet.
 
 	self
 		assert: (Day19BeaconScanner relativeCoordinatesToAllBeacons: { 
@@ -23,7 +31,11 @@ testRelativeCoordinatesToAllBeacons
 					 (-3 @ 0 @ 0) })
 		equals: { 
 				(-1 @ 0 @ 0).
-				(1 @ 0 @ 0) } asSet.
+				(1 @ 0 @ 0).
+				(0 @ -1 @ 0).
+				(0 @ 1 @ 0).
+				(0 @ 0 @ -1).
+				(0 @ 0 @ 1) } asSet.
 
 	self
 		assert: (Day19BeaconScanner relativeCoordinatesToAllBeacons: { 
@@ -31,4 +43,8 @@ testRelativeCoordinatesToAllBeacons
 					 (-5 @ 0 @ 0) })
 		equals: { 
 				(-1 @ 0 @ 0).
-				(1 @ 0 @ 0) } asSet
+				(1 @ 0 @ 0).
+				(0 @ -1 @ 0).
+				(0 @ 1 @ 0).
+				(0 @ 0 @ -1).
+				(0 @ 0 @ 1) } asSet
