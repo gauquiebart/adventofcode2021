@@ -61,5 +61,3 @@ explodeOnce: aNumber level: aNestedLevel
 	^ { 
 		  xAfterExplosion.
 		  yAfterExplosion }
-
-	"self shouldBeImplemented."
