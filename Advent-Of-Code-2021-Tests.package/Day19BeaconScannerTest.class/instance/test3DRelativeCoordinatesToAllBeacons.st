@@ -9,4 +9,4 @@ test3DRelativeCoordinatesToAllBeacons
 		(-2 @ -3 @ 1).
 	   ( 5 @  6 @ -4).
 		( 8 @ 0 @7)}) size
-		equals: 484
+		equals: 516

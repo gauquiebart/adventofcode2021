@@ -1,5 +1,6 @@
 arithmetic
 fullyRotatedAroundXZ
+
 	^ { 
 		  self.
 		  self leftRotatedAroundXZ.

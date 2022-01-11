@@ -17,6 +17,6 @@ test2DFindOverlappingBeacons
 				 findOverlappingBeaconsFor: (scanners at: 1)
 				 and: (scanners at: 2))
 		equals: { 
-				(0 @ 1 @ 3).
-				(1 @ 0 @ -4).
-				(0 @ -2 @ 1) } asSet
+				(4 @ 1 @ 0).
+				(3 @ 3 @ 0).
+				(0 @ 2 @ 0) } asSet

@@ -7,8 +7,8 @@ relativeCoordinatesToAllBeacons: aCollectionOfBeacons
 			                combinations: 2
 			                atATimeDo: [ :each | stream nextPut: each copy ] ].
 
-	^ (combinations collect: [ :eachCombination | 
-		   (eachCombination at: 1) - (eachCombination at: 2) ]) 
-		  flatCollectAsSet: [ :eachRelativeCoordinateBetweenTwoBeacons | 
-			  eachRelativeCoordinateBetweenTwoBeacons
-				  asSeenInAllCoordinateSystems ]
+	^ combinations flatCollectAsSet: [ :combination | 
+		  ((combination at: 1) - (combination at: 2))
+			  asSeenInAllCoordinateSystems collect: [ 
+			  :eachRelativeCoordinateBetweenTwoBeacons | 
+			  eachRelativeCoordinateBetweenTwoBeacons -> combination ] ]

@@ -9,4 +9,6 @@ test1DFindOverlappingBeacons
 				 and: { 
 						 (2 @ 0 @ 0).
 						 (3 @ 0 @ 0) })
-		equals: { (-1 @ 0 @ 0) } asSet
+		equals: { 
+				(4 @ 0 @ 0).
+				(5 @ 0 @ 0) } asSet

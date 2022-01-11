@@ -51,6 +51,6 @@ test3DFindOverlappingBeacons
 		assert: (Day19BeaconScanner
 				 findOverlappingBeaconsFor: (scanners at: (eachCombination at: 1))
 				 and: (scanners at: (eachCombination at: 2))) size
-		equals: 13].
+		equals: 6].
 	
 	

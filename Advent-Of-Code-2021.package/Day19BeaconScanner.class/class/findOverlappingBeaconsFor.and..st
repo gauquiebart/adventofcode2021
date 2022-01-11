@@ -1,22 +1,27 @@
 solving
 findOverlappingBeaconsFor: aScanner and: anotherScanner
 
-	| relativeCoordinatesToScanner relativeCoordinatesToAnotherScanner resultWithMirroredAroundEachAxis result |
-	relativeCoordinatesToScanner := self 
-		                                relativeCoordinatesToAllBeacons:
-		                                aScanner.
-	relativeCoordinatesToAnotherScanner := self 
-		                                       relativeCoordinatesToAllBeacons:
-		                                       anotherScanner.
+	| relativeCoordinatesToBeaconsForScanner relativeCoordinatesToBeaconsForAnotherScanner relativeCoordinatesOverlapping uniqueRelativeCoordinatesOverlapping |
+	relativeCoordinatesToBeaconsForScanner := self 
+		                                          relativeCoordinatesToAllBeacons:
+		                                          aScanner.
+	relativeCoordinatesToBeaconsForAnotherScanner := self 
+		                                                 relativeCoordinatesToAllBeacons:
+		                                                 anotherScanner.
 
-	resultWithMirroredAroundEachAxis := relativeCoordinatesToScanner 
-		                                    intersection:
-		                                    relativeCoordinatesToAnotherScanner.
+	relativeCoordinatesOverlapping := (relativeCoordinatesToBeaconsForScanner 
+		                                   collect: #key) intersection:
+		                                  (relativeCoordinatesToBeaconsForAnotherScanner 
+			                                   collect: #key).
 
-	result := Set new.
+	uniqueRelativeCoordinatesOverlapping := Set new.
 
-	resultWithMirroredAroundEachAxis do: [ :eachToAdd | 
-		(result intersection: eachToAdd asSeenInAllCoordinateSystems)
-			isEmpty ifTrue: [ result add: eachToAdd ] ].
+	relativeCoordinatesOverlapping do: [ :eachToAdd | 
+		(uniqueRelativeCoordinatesOverlapping intersection:
+			 eachToAdd asSeenInAllCoordinateSystems) isEmpty ifTrue: [ 
+			uniqueRelativeCoordinatesOverlapping add: eachToAdd ] ].
 
-	^ result
+	^ uniqueRelativeCoordinatesOverlapping flatCollectAsSet: [ 
+		  :eachRelativeCoordinate | 
+		  (relativeCoordinatesToBeaconsForScanner select: [ :each | 
+			   each key = eachRelativeCoordinate ]) anyOne value ]
