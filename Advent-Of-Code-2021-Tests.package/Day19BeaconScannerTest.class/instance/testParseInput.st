@@ -1,5 +1,5 @@
 tests
-test1DScanner
+testParseInput
 
 	self
 		assert: (Day19BeaconScanner parseRawInput: '--- scanner 0 ---
