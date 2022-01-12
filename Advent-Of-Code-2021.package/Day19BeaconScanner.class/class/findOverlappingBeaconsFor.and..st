@@ -1,17 +1,17 @@
 solving
-findOverlappingBeaconsFor: aScanner and: anotherScanner
+findOverlappingBeaconsFor: aScanner and: otherScanner
 
-	| relativeCoordinatesToBeaconsForScanner relativeCoordinatesToBeaconsForAnotherScanner relativeCoordinatesOverlapping uniqueRelativeCoordinatesOverlapping |
+	| relativeCoordinatesToBeaconsForScanner relativeCoordinatesToBeaconsForOtherScanner relativeCoordinatesOverlapping uniqueRelativeCoordinatesOverlapping |
 	relativeCoordinatesToBeaconsForScanner := self 
 		                                          relativeCoordinatesToAllBeacons:
 		                                          aScanner.
-	relativeCoordinatesToBeaconsForAnotherScanner := self 
+	relativeCoordinatesToBeaconsForOtherScanner := self 
 		                                                 relativeCoordinatesToAllBeacons:
-		                                                 anotherScanner.
+		                                                 otherScanner.
 
 	relativeCoordinatesOverlapping := (relativeCoordinatesToBeaconsForScanner 
 		                                   collect: #key) intersection:
-		                                  (relativeCoordinatesToBeaconsForAnotherScanner 
+		                                  (relativeCoordinatesToBeaconsForOtherScanner 
 			                                   collect: #key).
 
 	uniqueRelativeCoordinatesOverlapping := Set new.

@@ -43,14 +43,13 @@ test3DFindOverlappingBeacons
 0,7,-8'.
 
 	(Array streamContents: [ :stream | 
-		                (1 to: 4)
-			                combinations: 2
-			                atATimeDo: [ :each | stream nextPut: each copy ] ]) 
-		do: [ :eachCombination |
-			 self
-		assert: (Day19BeaconScanner
-				 findOverlappingBeaconsFor: (scanners at: (eachCombination at: 1))
-				 and: (scanners at: (eachCombination at: 2))) size
-		equals: 6].
-	
-	
+		 (1 to: 4)
+			 combinations: 2
+			 atATimeDo: [ :each | stream nextPut: each copy ] ]) do: [ 
+		:eachCombination | 
+		self
+			assert: (Day19BeaconScanner
+					 findOverlappingBeaconsFor:
+					 (scanners at: (eachCombination at: 1))
+					 and: (scanners at: (eachCombination at: 2))) size
+			equals: 6 ]
