@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Advent-Of-Code-2021",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [
+		"RotationMatrices3D"
+	],
+	"instvars" : [ ],
+	"name" : "RotationMatrices",
+	"type" : "normal"
+}
