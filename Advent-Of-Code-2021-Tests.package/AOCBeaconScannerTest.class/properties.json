@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "TestCase",
+	"category" : "Advent-Of-Code-2021-Tests-Day19BeaconScanner",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "AOCBeaconScannerTest",
+	"type" : "normal"
+}

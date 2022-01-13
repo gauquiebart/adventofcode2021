@@ -1,0 +1,3 @@
+accessing
+beacons
+	^ beacons copy
