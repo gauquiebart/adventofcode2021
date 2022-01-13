@@ -12,4 +12,6 @@ mergeWith: anOtherAOCBeaconScanner usingMinOverlapOfBeacons: aNmbrOfBeacons
 		beacons := (beacons addAll:
 			            (anOtherAOCBeaconScanner beacons collect: [ :each | 
 				             each multiplyWith: matrixTranformationToOtherScanner ]))
-			           asSet asOrderedCollection ]
+			           asSet asOrderedCollection ].
+
+	^ matrixTranformationToOtherScanner isNotNil
