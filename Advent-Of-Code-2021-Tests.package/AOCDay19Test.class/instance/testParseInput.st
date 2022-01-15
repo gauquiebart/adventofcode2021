@@ -11,8 +11,8 @@ testParseInput
 3,0,0') collect: [ :each | each beacons asArray  ])
 		equals: { 
 				{ 
-					{ 4. 0. 0 }.
-					{ 5. 0. 0 } }.
+					{ 4. 0. 0 } asPMVector .
+					{ 5. 0. 0 } asPMVector }.
 				{ 
-					{ 2. 0. 0 }.
-					{ 3. 0. 0 } } }
+					{ 2. 0. 0 } asPMVector .
+					{ 3. 0. 0 } asPMVector } }

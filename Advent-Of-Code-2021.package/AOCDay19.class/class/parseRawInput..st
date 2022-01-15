@@ -10,6 +10,6 @@ parseRawInput: aRawInputStringOfScannerAndBeaconLocations
 			               { 
 				               (Number readFrom: (coordinatesForBeacon at: 1)).
 				               (Number readFrom: (coordinatesForBeacon at: 2)).
-				               (Number readFrom: (coordinatesForBeacon at: 3)) } ])
-			              asArray.
+				               (Number readFrom: (coordinatesForBeacon at: 3)) }
+				               asPMVector ]) asArray.
 		   AOCBeaconScanner fromBeacons: beacons ]) asArray
