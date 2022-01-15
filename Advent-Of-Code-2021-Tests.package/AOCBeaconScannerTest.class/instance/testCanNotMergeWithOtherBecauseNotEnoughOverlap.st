@@ -1,5 +1,5 @@
 tests
-testCanNotMergeWithOtherForTranslation
+testCanNotMergeWithOtherBecauseNotEnoughOverlap
 
 	self
 		assert: ((AOCBeaconScanner fromBeacons: { 
