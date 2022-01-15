@@ -3,8 +3,8 @@ findAllBeacons: aCollectionOfScanners usingMinOverlapOfBeacons: aNmbrOfBeacons
 
 	| scannerZero otherScanners mergedScanners scannerZeroNmbrOfBeacons |
 	scannerZero := aCollectionOfScanners first.
-	otherScanners := aCollectionOfScanners allButFirst.
-	mergedScanners := OrderedCollection new.
+	otherScanners := aCollectionOfScanners allButFirst copy asSet.
+	mergedScanners := Set new.
 
 	scannerZeroNmbrOfBeacons := scannerZero beacons size.
 
@@ -14,7 +14,8 @@ findAllBeacons: aCollectionOfScanners usingMinOverlapOfBeacons: aNmbrOfBeacons
 			merged := scannerZero
 				          mergeWith: otherScanner
 				          usingMinOverlapOfBeacons: aNmbrOfBeacons.
-			merged ifTrue: [ mergedScanners add: otherScanner ] ] ].
+			merged ifTrue: [ mergedScanners add: otherScanner ] ].
+		otherScanners removeAllFoundIn: mergedScanners ].
 
 
 	^ scannerZero

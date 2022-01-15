@@ -6,7 +6,7 @@ testFindAllBeaconsForASimpleRawTestInput
 	
 	self
 		assert:
-			(AOCDay19 findAllBeacons: beacons usingMinOverlapOfBeacons: 2)
+			(AOCDay19 findAllBeacons: beacons usingMinOverlapOfBeacons: 6)
 				beacons asSet
 		equals: { 
 				{ -1. -1. 1 } asPMVector.

@@ -1,7 +1,7 @@
 private
 findMatrixTransformationsTo: anOtherAOCBeaconScanner usingMinOverlapOfBeacons: aNmbrOfBeacons
 
-	| relativeCoordinatesToBeacons relativeCoordinatesToBeaconsOfOtherScanner relativeCoordinatesBeaconsOverlapping uniqueRelativeCoordinatesOverlapping uniqueRelativeCoordinatesOverlap beaconCoordinatesInScanner beaconCoordinatesInOtherScanner originRotationMatrix originTransformationMatrix unityVectorInScanner unityVectorInOtherScanner |
+	| relativeCoordinatesToBeacons relativeCoordinatesToBeaconsOfOtherScanner relativeCoordinatesBeaconsOverlapping uniqueRelativeCoordinatesOverlapping uniqueRelativeCoordinatesOverlap beaconCoordinatesInScanner beaconCoordinatesInOtherScanner originRotationMatrix originTransformationMatrix unityVectorInScanner unityVectorInOtherScanner possibleCombinationsOfMatrices temp matchingCombinationsOfMatrices |
 	relativeCoordinatesToBeacons := self relativeCoordinatesToAllBeacons.
 	relativeCoordinatesToBeaconsOfOtherScanner := anOtherAOCBeaconScanner
 		                                              relativeCoordinatesToAllBeacons.
@@ -22,49 +22,90 @@ findMatrixTransformationsTo: anOtherAOCBeaconScanner usingMinOverlapOfBeacons: a
 	uniqueRelativeCoordinatesOverlapping size * 2 < aNmbrOfBeacons 
 		ifTrue: [ ^ nil ].
 
+	possibleCombinationsOfMatrices := uniqueRelativeCoordinatesOverlapping 
+		                                  collect: [ 
+			                                  :eachUniqueRelativeCoordinatesOverlap | 
+			                                  uniqueRelativeCoordinatesOverlap := eachUniqueRelativeCoordinatesOverlap.
+
+			                                  beaconCoordinatesInScanner := (relativeCoordinatesToBeacons 
+				                                                                 select: [ 
+				                                                                 :each | 
+				                                                                 each
+					                                                                 key
+				                                                                 =
+				                                                                 uniqueRelativeCoordinatesOverlap ])
+				                                                                anyOne
+				                                                                value.
+
+			                                  beaconCoordinatesInOtherScanner := (relativeCoordinatesToBeaconsOfOtherScanner 
+				                                                                      select: [ 
+				                                                                      :each | 
+				                                                                      each
+					                                                                      key
+				                                                                      =
+				                                                                      uniqueRelativeCoordinatesOverlap ])
+				                                                                     anyOne
+				                                                                     value.
 
 
-	uniqueRelativeCoordinatesOverlap := uniqueRelativeCoordinatesOverlapping
-		                                    anyOne.
+			                                  unityVectorInScanner := beaconCoordinatesInScanner
+				                                                          first
+			                                                          -
+			                                                          beaconCoordinatesInScanner
+				                                                          second.
 
-	beaconCoordinatesInScanner := (relativeCoordinatesToBeacons select: [ 
-		                               :each | 
-		                               each key
-		                               = uniqueRelativeCoordinatesOverlap ])
-		                              anyOne value.
+			                                  unityVectorInOtherScanner := beaconCoordinatesInOtherScanner
+				                                                               first
+			                                                               -
+			                                                               beaconCoordinatesInOtherScanner
+				                                                               second.
 
-	beaconCoordinatesInOtherScanner := (relativeCoordinatesToBeaconsOfOtherScanner 
-		                                    select: [ :each | 
-		                                    each key
-		                                    =
-		                                    uniqueRelativeCoordinatesOverlap ])
-		                                   anyOne value.
+			                                  originRotationMatrix := (AOCRotationMatrices
+				                                                           rotationsAroundAllAxis 
+				                                                           select: [ 
+					                                                           :each | 
+					                                                           (unityVectorInOtherScanner 
+						                                                            multiplyWith:
+						                                                            each)
+					                                                           =
+					                                                           unityVectorInScanner ])
+				                                                          anyOne.
 
-	"these represent 2 vectors -> see about translation, orientation and direction -> that is how you should then transform all the beacons of the other Scanner, for now, we will only implement translation"
-	"TODO model as a 3D transformation matrix"
+			                                  originTransformationMatrix := (beaconCoordinatesInScanner
+				                                                                 first
+			                                                                 -
+				                                                                 (beaconCoordinatesInOtherScanner
+					                                                                  first 
+					                                                                  multiplyWith:
+					                                                                  originRotationMatrix))
+				                                                                asOriginTransformationMatrix.
 
-	unityVectorInScanner := beaconCoordinatesInScanner first
-	                        - beaconCoordinatesInScanner second.
+			                                  beaconCoordinatesInScanner first
+			                                  =
+				                                  ((beaconCoordinatesInOtherScanner
+					                                    first multiplyWith:
+					                                    originRotationMatrix) 
+					                                   multiplyWith:
+					                                   originTransformationMatrix)
+				                                  ifTrue: [ 
+					                                  { 
+						                                  originRotationMatrix.
+						                                  originTransformationMatrix } ]
+				                                  ifFalse: [ {  } ] ].
 
-	unityVectorInOtherScanner := beaconCoordinatesInOtherScanner first
-	                             - beaconCoordinatesInOtherScanner second.
-
-	originRotationMatrix := (AOCRotationMatrices rotationsAroundAllAxis 
-		                         select: [ :each | 
-			                         (unityVectorInOtherScanner multiplyWith:
-				                          each) = unityVectorInScanner ]) anyOne.
-
-	beaconCoordinatesInOtherScanner first multiplyWith:
-		originRotationMatrix.
 
 
-	originTransformationMatrix := (beaconCoordinatesInScanner first
-	                               -
-		                               (beaconCoordinatesInOtherScanner
-			                                first multiplyWith:
-			                                originRotationMatrix))
-		                              asOriginTransformationMatrix.
-		
-	(beaconCoordinatesInOtherScanner first multiplyWith: originRotationMatrix) multiplyWith:  originTransformationMatrix.
+	matchingCombinationsOfMatrices := possibleCombinationsOfMatrices 
+		                                  select: [ :eachMatrixCombination | 
+			                                  ((anOtherAOCBeaconScanner beacons 
+				                                    collect: [ :each | 
+					                                    (each multiplyWith:
+						                                     (eachMatrixCombination at:
+							                                      1)) multiplyWith:
+						                                    (eachMatrixCombination at: 2) ]) 
+				                                   intersection: beacons) size
+			                                  >= aNmbrOfBeacons ].
 
-	^ { originRotationMatrix . originTransformationMatrix }
+	^ matchingCombinationsOfMatrices isEmpty
+		  ifTrue: [ ^ nil ]
+		  ifFalse: [ matchingCombinationsOfMatrices anyOne ]
