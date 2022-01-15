@@ -5,7 +5,8 @@
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [
-		"RotationMatrices3D"
+		"RotationMatrices3D",
+		"RotationsAroundAllAxis"
 	],
 	"instvars" : [ ],
 	"name" : "AOCRotationMatrices",

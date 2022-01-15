@@ -3,7 +3,7 @@ testFindAllBeaconsForASimpleRawTestInput
 
 	| beacons |
 	beacons := AOCDay19 parseRawInput: self aSimpleRawTestInput.
-
+	
 	self
 		assert:
 			(AOCDay19 findAllBeacons: beacons usingMinOverlapOfBeacons: 2)

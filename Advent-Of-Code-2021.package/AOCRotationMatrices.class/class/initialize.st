@@ -24,4 +24,6 @@ initialize
 			at: 2 at: 2 put: 0;
 			at: 1 at: 2 put: -1;
 			at: 2 at: 1 put: 1;
-			yourself)
+			yourself).
+			
+		RotationsAroundAllAxis := self initRotationsAroundAllAxis.
