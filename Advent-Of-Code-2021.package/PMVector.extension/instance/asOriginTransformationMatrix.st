@@ -3,7 +3,7 @@ asOriginTransformationMatrix
 
 	| result |
 	result := PMSymmetricMatrix identity: 4.
-	result at: 4 at: 1 put: self first.
-	result at: 4 at: 2 put: self second.
-	result at: 4 at: 3 put: self third.
+	result at: 1 at: 4 put: self first.
+	result at: 2 at: 4 put: self second.
+	result at: 3 at: 4 put: self third.
 	^ result

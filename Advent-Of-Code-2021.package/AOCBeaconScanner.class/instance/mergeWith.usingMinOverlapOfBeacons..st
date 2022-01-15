@@ -1,17 +1,20 @@
 merging
 mergeWith: anOtherAOCBeaconScanner usingMinOverlapOfBeacons: aNmbrOfBeacons
 
-	| matrixTranformationToOtherScanner |
-	matrixTranformationToOtherScanner := self
-		                                     findMatrixTransformationTo:
+	| matrixTranformationsToOtherScanner |
+	matrixTranformationsToOtherScanner := self
+		                                     findMatrixTransformationsTo:
 		                                     anOtherAOCBeaconScanner
 		                                     usingMinOverlapOfBeacons:
 		                                     aNmbrOfBeacons.
 
-	matrixTranformationToOtherScanner isNotNil ifTrue: [ 
+	matrixTranformationsToOtherScanner isNotNil ifTrue: [ 
 		beacons := (beacons addAll:
 			            (anOtherAOCBeaconScanner beacons collect: [ :each | 
-				             each multiplyWith: matrixTranformationToOtherScanner ]))
-			           asSet asOrderedCollection ].
+				             (each multiplyWith:
+					              (matrixTranformationsToOtherScanner at: 1)) 
+					             multiplyWith:
+					             (matrixTranformationsToOtherScanner at: 2) ])) asSet
+			           asOrderedCollection ].
 
-	^ matrixTranformationToOtherScanner isNotNil
+	^ matrixTranformationsToOtherScanner isNotNil

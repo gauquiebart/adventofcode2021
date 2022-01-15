@@ -1,5 +1,5 @@
 private
-findMatrixTransformationTo: anOtherAOCBeaconScanner usingMinOverlapOfBeacons: aNmbrOfBeacons
+findMatrixTransformationsTo: anOtherAOCBeaconScanner usingMinOverlapOfBeacons: aNmbrOfBeacons
 
 	| relativeCoordinatesToBeacons relativeCoordinatesToBeaconsOfOtherScanner relativeCoordinatesBeaconsOverlapping uniqueRelativeCoordinatesOverlapping uniqueRelativeCoordinatesOverlap beaconCoordinatesInScanner beaconCoordinatesInOtherScanner originRotationMatrix originTransformationMatrix unityVectorInScanner unityVectorInOtherScanner |
 	relativeCoordinatesToBeacons := self relativeCoordinatesToAllBeacons.
@@ -64,5 +64,7 @@ findMatrixTransformationTo: anOtherAOCBeaconScanner usingMinOverlapOfBeacons: aN
 			                                first multiplyWith:
 			                                originRotationMatrix))
 		                              asOriginTransformationMatrix.
+		
+	(beaconCoordinatesInOtherScanner first multiplyWith: originRotationMatrix) multiplyWith:  originTransformationMatrix.
 
-	^ originRotationMatrix * originTransformationMatrix
+	^ { originRotationMatrix . originTransformationMatrix }
