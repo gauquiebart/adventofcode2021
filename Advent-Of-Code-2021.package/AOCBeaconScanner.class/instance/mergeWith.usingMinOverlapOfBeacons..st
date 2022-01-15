@@ -17,4 +17,4 @@ mergeWith: anOtherAOCBeaconScanner usingMinOverlapOfBeacons: aNmbrOfBeacons
 					             (matrixTranformationsToOtherScanner at: 2) ]).
 		beacons := beacons asSet asOrderedCollection ].
 
-	^ matrixTranformationsToOtherScanner isNotNil
+	^ matrixTranformationsToOtherScanner
