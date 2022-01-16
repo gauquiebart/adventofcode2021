@@ -1,0 +1,4 @@
+private
+numberOfRows
+
+	^ imageLines size

@@ -1,0 +1,16 @@
+tests
+testEnhanceImage
+
+	| imageEnhancementAlgorithm inputImage enhancedInputImage expectedEnhancedImageInput |
+	imageEnhancementAlgorithm := self imageEnhancementAlgorithmTestInput.
+	inputImage := AOCDay20TrenchMap parseImageInput:
+		              self imageInputTestInput.
+
+	enhancedInputImage := inputImage enhanceWith:
+		                      imageEnhancementAlgorithm.
+	expectedEnhancedImageInput := AOCDay20TrenchMap parseImageInput:
+		                              self
+			                              imageInputAfterFirstEnhancementTestInput.
+	self
+		assert: enhancedInputImage numberOfLightSpots 
+		equals: expectedEnhancedImageInput numberOfLightSpots

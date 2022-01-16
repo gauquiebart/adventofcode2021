@@ -1,0 +1,10 @@
+helper
+imageInputAfterFirstEnhancementTestInput
+
+	^ '.##.##.
+#..#.#.
+##.#..#
+####..#
+.#..##.
+..##..#
+...#.#.'
