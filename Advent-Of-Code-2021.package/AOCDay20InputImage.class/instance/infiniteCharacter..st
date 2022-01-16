@@ -1,3 +1,4 @@
 private
-infiniteCharacter: aCharacter 
+infiniteCharacter: aCharacter
+
 	infiniteCharacter := aCharacter
