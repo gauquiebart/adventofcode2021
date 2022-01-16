@@ -6,7 +6,9 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"imageLines"
+		"imageLines",
+		"imageEnhancementAlgorithm",
+		"infiniteCharacter"
 	],
 	"name" : "AOCDay20InputImage",
 	"type" : "normal"

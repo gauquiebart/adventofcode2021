@@ -2,11 +2,12 @@ tests
 testPuzzleA
 
 	| imageEnhancementAlgorithm inputImage |
-	imageEnhancementAlgorithm := self imageEnhancementAlgorithmPuzzleInput.
-	inputImage := AOCDay20TrenchMap parseImageInput:
-		              self imageInputPuzzleInput.
+	imageEnhancementAlgorithm := self
+		                             imageEnhancementAlgorithmPuzzleInput.
+	inputImage := AOCDay20TrenchMap
+		              parseImageInput: self imageInputPuzzleInput
+		              withEnhancement: imageEnhancementAlgorithm.
 	self
 		assert:
-			((inputImage enhanceWith: imageEnhancementAlgorithm) enhanceWith:
-				 imageEnhancementAlgorithm) numberOfLightSpots
-		equals: 6532
+			inputImage enhance enhance numberOfLightSpots
+		equals: 5682

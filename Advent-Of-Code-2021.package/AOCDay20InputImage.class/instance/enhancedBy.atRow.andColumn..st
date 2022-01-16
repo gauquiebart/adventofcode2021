@@ -16,7 +16,7 @@ enhancedBy: imageEnhancementAlgorithm atRow: row andColumn: column
 
 	index := (around collect: [ :eachPosition | 
 		          self
-			          darkOrValueAtRow: eachPosition x
+			          valueAtRow: eachPosition x
 			          andColumn: eachPosition y ])
 		         inject: 0
 		         into: [ :sum :each | 

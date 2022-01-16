@@ -3,27 +3,27 @@ testEnhanceImageTwice
 
 	| imageEnhancementAlgorithm inputImage enhancedInputImage expectedEnhancedImageTwiceInput |
 	imageEnhancementAlgorithm := self imageEnhancementAlgorithmTestInput.
-	inputImage := AOCDay20TrenchMap parseImageInput:
-		              self imageInputTestInput.
 
-	enhancedInputImage := inputImage enhanceWith:
-		                      imageEnhancementAlgorithm.
+	inputImage := AOCDay20TrenchMap parseImageInput:
+		              self imageInputTestInput
+		withEnhancement: imageEnhancementAlgorithm .
+
+	enhancedInputImage := inputImage enhance.
 	expectedEnhancedImageTwiceInput := AOCDay20TrenchMap 
 		                                   parseImageInput:
 		                                   self
-			                                   imageInputAfterSecondEnhancementTestInput.
+			                                   imageInputAfterSecondEnhancementTestInput
+			withEnhancement: imageEnhancementAlgorithm .
 	self
-		assert:
-			(enhancedInputImage enhanceWith: imageEnhancementAlgorithm)
-				imageLines asArray
-		equals: expectedEnhancedImageTwiceInput imageLines asArray.
-
-	self
-		assert: (enhancedInputImage enhanceWith: imageEnhancementAlgorithm)
+		assert: enhancedInputImage enhance
 				numberOfLightSpots
 		equals: expectedEnhancedImageTwiceInput numberOfLightSpots.
 
 	self
-		assert: (enhancedInputImage enhanceWith: imageEnhancementAlgorithm)
+		assert: enhancedInputImage enhance
 				numberOfLightSpots
-		equals: 35
+		equals: 35.
+	self
+		assert:
+			enhancedInputImage enhance	imageLines asArray
+		equals: expectedEnhancedImageTwiceInput imageLines asArray
