@@ -1,0 +1,4 @@
+accessing
+numberOfRolls
+
+	^ numberOfRolls

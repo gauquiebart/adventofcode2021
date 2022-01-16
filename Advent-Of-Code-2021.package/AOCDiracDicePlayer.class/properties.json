@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Advent-Of-Code-2021-Day21DiracDice",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"position",
+		"score"
+	],
+	"name" : "AOCDiracDicePlayer",
+	"type" : "normal"
+}
