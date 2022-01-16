@@ -3,8 +3,8 @@ growAllAround
 
 	| newInfiniteCharacter |
 	newInfiniteCharacter := infiniteCharacter = $.
-		                        ifTrue: [ imageEnhancementAlgorithm at: 1 ]
-		                        ifFalse: [ imageEnhancementAlgorithm at: 9 ].
+		                        ifTrue: [ imageEnhancementAlgorithm first ]
+		                        ifFalse: [ imageEnhancementAlgorithm last ].
 
 	^ self class new
 		  imageLines: ((1 to: self numberOfRows + 8) collect: [ :each | 

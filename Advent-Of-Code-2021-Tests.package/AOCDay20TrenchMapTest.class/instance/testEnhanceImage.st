@@ -18,6 +18,6 @@ testEnhanceImage
 		assert: enhancedInputImage numberOfLightSpots
 		equals: expectedEnhancedImageInput numberOfLightSpots.
 
-	self
+	"self
 		assert: enhancedInputImage imageLines asArray
-		equals: expectedEnhancedImageInput imageLines asArray
+		equals: expectedEnhancedImageInput imageLines asArray"
