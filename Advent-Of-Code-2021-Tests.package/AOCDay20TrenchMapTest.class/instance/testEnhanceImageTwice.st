@@ -13,6 +13,12 @@ testEnhanceImageTwice
 		                                   self
 			                                   imageInputAfterSecondEnhancementTestInput.
 	self
+		assert:
+			(enhancedInputImage enhanceWith: imageEnhancementAlgorithm)
+				imageLines asArray
+		equals: expectedEnhancedImageTwiceInput imageLines asArray.
+
+	self
 		assert: (enhancedInputImage enhanceWith: imageEnhancementAlgorithm)
 				numberOfLightSpots
 		equals: expectedEnhancedImageTwiceInput numberOfLightSpots.

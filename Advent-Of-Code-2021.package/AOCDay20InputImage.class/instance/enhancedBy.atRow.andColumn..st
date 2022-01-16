@@ -15,7 +15,13 @@ enhancedBy: imageEnhancementAlgorithm atRow: row andColumn: column
 		          (center + (1 @ 1)) }.
 
 	index := (around collect: [ :eachPosition | 
-		self darkOrValueAtRow: eachPosition x andColumn: eachPosition y ])
-	inject: 0 into: [:sum :each | (sum << 1) bitOr: (each = $# ifTrue: 1 ifFalse: 0)].
+		          self
+			          darkOrValueAtRow: eachPosition x
+			          andColumn: eachPosition y ])
+		         inject: 0
+		         into: [ :sum :each | 
+			         sum << 1 bitOr: (each = $#
+					          ifTrue: 1
+					          ifFalse: 0) ].
 
-	^ imageEnhancementAlgorithm at: (index + 1)
+	^ imageEnhancementAlgorithm at: index + 1

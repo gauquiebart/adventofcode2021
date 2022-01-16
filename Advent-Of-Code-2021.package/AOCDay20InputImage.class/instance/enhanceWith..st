@@ -8,7 +8,7 @@ enhanceWith: imageEnhancementAlgorithm
 		1 to: enhancedImage numberOfColumns do: [ :column | 
 			(enhancedImage imageLines at: row) at: column put: (self
 					 enhancedBy: imageEnhancementAlgorithm
-					 atRow: row - 1
-					 andColumn: column - 1) ] ].
+					 atRow: row - 2
+					 andColumn: column - 2) ] ].
 
 	^ enhancedImage 

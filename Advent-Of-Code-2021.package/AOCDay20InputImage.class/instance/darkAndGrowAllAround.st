@@ -2,8 +2,8 @@ private
 darkAndGrowAllAround
 
 	^ self class new
-		  imageLines: ((1 to: self numberOfRows + 2) collect: [ :each | 
-					   ByteString fromByteArray: (Array streamContents: [ :stream | 
-									    1 to: self numberOfColumns + 2 do: [ :each2 | 
-										    stream nextPut: $. ] ]) ]);
+		  imageLines: ((1 to: self numberOfRows + 4) collect: [ :each | 
+					   String streamContents: [ :stream | 
+							   1 to: self numberOfColumns + 4 do: [ :each2 | 
+								   stream nextPut: $. ] ] ]);
 		  yourself

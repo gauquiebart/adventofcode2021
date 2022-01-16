@@ -13,4 +13,8 @@ testEnhanceImage
 			                              imageInputAfterFirstEnhancementTestInput.
 	self
 		assert: enhancedInputImage numberOfLightSpots 
-		equals: expectedEnhancedImageInput numberOfLightSpots
+		equals: expectedEnhancedImageInput numberOfLightSpots.
+		
+	self
+		assert: enhancedInputImage imageLines asArray
+		equals: expectedEnhancedImageInput imageLines asArray.	
